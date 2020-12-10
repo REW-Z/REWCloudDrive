@@ -1,0 +1,146 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="REW_Cloud_Drive.MainMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+     <style>
+         body
+         {
+             margin:0;
+             padding:0;
+             background-image:url(/Images/background.png);
+             /*background-color:rgb(32, 32, 32);*/
+             color:white;
+         }
+         footer
+         {
+             color:gray;
+             font-size:12px;
+         }
+         hr
+         {
+             background-color:gray;
+             border:none;
+             height:1px;
+         }
+         #div_head
+         {
+             margin:0;
+             padding:0;
+             height:80px;
+         }
+         #div_head_top
+         {
+             margin:0;
+             padding:0;
+             height:40px;
+             background-color:gray;
+         }
+         #div_loginstatus
+         {
+             margin:10px 0;
+             width:200px;
+
+             font-size:16px;
+         }
+         #div_navmenu
+         {
+             margin:0;
+             padding:0;
+             height:40px;
+             background-color:black;
+             display:none;
+         }
+         
+
+         .floatleft
+         {
+             float:left;
+         }
+         .floatright
+         {
+             float:right;
+         }
+         .clearfloat
+         {
+             margin:0;
+             padding:0;
+             height:0;
+             clear:both;
+         }
+     </style>
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#div_head").mouseenter(function () {
+                $("#div_navmenu").fadeIn(50);
+            });
+            $("#div_head").mouseleave(function () {
+                $("#div_navmenu").fadeOut(50);
+            });
+        });
+    </script>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        </div>
+
+        <div id="div_head">
+            <div id="div_head_top">
+
+                <div class="floatleft">
+                    <asp:HyperLink ID="HyperLink_home" runat="server" NavigateUrl="/ProtectedPages/Default.aspx" Font-Size="28px" ForeColor="White" Font-Underline="false">HOME</asp:HyperLink>
+                </div>
+
+
+                <div id="div_loginstatus" class="floatright">
+                    <asp:UpdatePanel ID="UpdatePanel_loginstatus" runat="server">
+                        <ContentTemplate>
+
+                            <asp:Image ID="Image_profile" runat="server" Height="20px" Width="20px" />
+                            <asp:Label ID="Label_UserInfo" runat="server" Text="Label"></asp:Label>
+                            <asp:LinkButton ID="LinkButton_logout" runat="server" OnClick="LinkButton_logout_Click">LinkButton</asp:LinkButton>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+                </div>
+
+                <div class="clearfloat"></div>
+
+                <div id="div_navmenu">
+                    <span>当前位置：</span>
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Verdana" Font-Size="1em" PathSeparator=" : ">
+                        <CurrentNodeStyle ForeColor="#cccccc" />
+                        <NodeStyle Font-Bold="True" ForeColor="#cccccc" />
+                        <PathSeparatorStyle Font-Bold="True" ForeColor="#cccccc" />
+                        <RootNodeStyle Font-Bold="True" ForeColor="#cccccc" />
+
+                        <PathSeparatorTemplate>
+                            ->
+                        </PathSeparatorTemplate>
+                    </asp:SiteMapPath>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer>
+            <hr />
+            <p>Dev:ZhouQiJie  </p>
+            <p>Contact:Leonardzhou@live.com   </p>
+        </footer>
+    </form>
+</body>
+</html>

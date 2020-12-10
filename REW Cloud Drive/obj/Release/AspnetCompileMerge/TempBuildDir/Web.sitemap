@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/Login" title="登录"  description="">
+    <siteMapNode url="~/ProtectedPages/Default" title="默认页"  description="" >
+      <siteMapNode url="~/ProtectedPages/Account" title="个人资料"  description="" />
+      <siteMapNode url="~/ProtectedPages/MyFiles" title="我的文件"  description="" />
+      <siteMapNode url="~/ProtectedPages/Upload" title="上传"  description="" />
+      <siteMapNode url="~/ProtectedPages/Share" title="分享"  description="" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>
